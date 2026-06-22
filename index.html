@@ -1,167 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surendar N – IT Networking & Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --surface2: #1a2235;
+      --accent: #00d4aa;
+      --accent2: #378ADD;
+      --text: #e8edf5;
+      --muted: #8892a4;
+      --border: rgba(0,212,170,0.2);
+      --mono: 'Space Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    .portfolio { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+    /* HERO */
+    .hero { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 340px; height: 340px; background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .tag-line { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 3px; margin-bottom: 1rem; text-transform: uppercase; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 600; line-height: 1.1; margin-bottom: 0.75rem; }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 1.5rem; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.75rem; }
+    .badge { font-family: var(--mono); font-size: 11px; padding: 4px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--accent); background: rgba(0,212,170,0.07); }
+    .contacts { display: flex; flex-wrap: wrap; gap: 20px; }
+    .contact-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .contact-item:hover { color: var(--text); }
+    .contact-item i { color: var(--accent2); font-size: 16px; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+    /* SECTIONS */
+    .section { margin-bottom: 2.75rem; }
+    .sec-label { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .sec-label::before { content: '//'; color: var(--muted); }
 
-:root {
-  --bg: #0a0f1e;
-  --surface: #111827;
-  --surface2: #1a2235;
-  --accent: #00d4aa;
-  --accent2: #378ADD;
-  --text: #e8edf5;
-  --muted: #8892a4;
-  --border: rgba(0,212,170,0.2);
-  --mono: 'Space Mono', monospace;
-  --sans: 'DM Sans', sans-serif;
-}
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .skill-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1rem 1.1rem; transition: border-color 0.2s, background 0.2s; }
+    .skill-card:hover { border-color: var(--border); background: var(--surface2); }
+    .skill-card h4 { font-size: 11px; color: var(--accent); font-family: var(--mono); margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag { font-size: 11px; padding: 3px 9px; border-radius: 4px; background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.08); }
 
-body { background: var(--bg); color: var(--text); font-family: var(--sans); }
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item { display: grid; grid-template-columns: 120px 1px 1fr; gap: 0 18px; padding-bottom: 2rem; }
+    .tl-date { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; padding-top: 3px; line-height: 1.6; }
+    .tl-line { background: var(--border); position: relative; }
+    .tl-line::before { content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+    .tl-item:last-child .tl-line { background: linear-gradient(to bottom, var(--border), transparent); }
+    .tl-body h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .tl-body .company { font-size: 12px; color: var(--accent2); margin-bottom: 8px; font-family: var(--mono); }
+    .tl-body ul { list-style: none; }
+    .tl-body ul li { font-size: 13px; color: var(--muted); padding: 3px 0 3px 16px; position: relative; line-height: 1.65; }
+    .tl-body ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
-.portfolio { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+    .proj-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.35rem; transition: border-color 0.2s, transform 0.2s; }
+    .proj-card:hover { border-color: rgba(0,212,170,0.4); transform: translateY(-3px); }
+    .proj-icon { font-size: 24px; color: var(--accent); margin-bottom: 10px; }
+    .proj-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .proj-card p { font-size: 12.5px; color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
+    .proj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+    .proj-stack span { font-size: 10px; font-family: var(--mono); padding: 2px 8px; border-radius: 3px; background: rgba(0,212,170,0.1); color: var(--accent); border: 1px solid rgba(0,212,170,0.2); }
 
-.hero { padding: 3rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2.5rem; position: relative; }
-.hero::before {
-  content: '';
-  position: absolute; top: 0; right: 0;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(0,212,170,0.07) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.tag-line { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 3px; margin-bottom: 1rem; text-transform: uppercase; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; margin-bottom: 0.75rem; }
-.hero h1 span { color: var(--accent); }
-.hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 1.5rem; }
-.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
-.badge {
-  font-family: var(--mono); font-size: 11px; padding: 4px 12px;
-  border: 1px solid var(--border); border-radius: 999px;
-  color: var(--accent); background: rgba(0,212,170,0.08);
-}
-.contacts { display: flex; flex-wrap: wrap; gap: 16px; }
-.contact-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; color: var(--muted);
-  text-decoration: none;
-}
-.contact-item i { color: var(--accent2); font-size: 15px; }
+    /* EDUCATION */
+    .edu-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.35rem 1.75rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .edu-icon { font-size: 32px; color: var(--accent2); }
+    .edu-info h3 { font-size: 15px; font-weight: 600; }
+    .edu-info p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+    .edu-cgpa { margin-left: auto; font-family: var(--mono); font-size: 28px; color: var(--accent); font-weight: 700; text-align: center; }
+    .edu-cgpa span { display: block; font-size: 11px; color: var(--muted); margin-top: -2px; }
 
-.section { margin-bottom: 2.5rem; }
-.sec-label {
-  font-family: var(--mono); font-size: 11px; color: var(--accent);
-  letter-spacing: 3px; text-transform: uppercase;
-  margin-bottom: 1.25rem; padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 10px;
-}
-.sec-label::before { content: '//'; color: var(--muted); }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; font-family: var(--mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .status { display: flex; align-items: center; gap: 7px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-.skill-card {
-  background: var(--surface); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 10px; padding: 1rem 1.1rem;
-  transition: border-color 0.2s, background 0.2s;
-}
-.skill-card:hover { border-color: var(--border); background: var(--surface2); }
-.skill-card h4 { font-size: 12px; color: var(--accent); font-family: var(--mono); margin-bottom: 10px; letter-spacing: 1px; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.skill-tag {
-  font-size: 11px; padding: 3px 9px; border-radius: 4px;
-  background: rgba(255,255,255,0.05); color: var(--muted);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.timeline { display: flex; flex-direction: column; gap: 0; }
-.tl-item { display: grid; grid-template-columns: 120px 1px 1fr; gap: 0 16px; padding-bottom: 2rem; }
-.tl-date { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; padding-top: 2px; line-height: 1.5; }
-.tl-line { background: var(--border); position: relative; }
-.tl-line::before {
-  content: '';
-  position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent); border: 2px solid var(--bg);
-}
-.tl-item:last-child .tl-line { background: linear-gradient(to bottom, var(--border), transparent); }
-.tl-body { padding-top: 0; }
-.tl-body h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-.tl-body .company { font-size: 12px; color: var(--accent2); margin-bottom: 8px; font-family: var(--mono); }
-.tl-body ul { list-style: none; padding: 0; }
-.tl-body ul li { font-size: 13px; color: var(--muted); padding: 3px 0 3px 14px; position: relative; line-height: 1.6; }
-.tl-body ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
-
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-.proj-card {
-  background: var(--surface); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 12px; padding: 1.25rem;
-  transition: border-color 0.2s, transform 0.2s;
-  cursor: default;
-}
-.proj-card:hover { border-color: rgba(0,212,170,0.4); transform: translateY(-2px); }
-.proj-icon { font-size: 22px; color: var(--accent); margin-bottom: 10px; }
-.proj-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-.proj-card p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 10px; }
-.proj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
-.proj-stack span { font-size: 10px; font-family: var(--mono); padding: 2px 7px; border-radius: 3px; background: rgba(0,212,170,0.1); color: var(--accent); border: 1px solid rgba(0,212,170,0.2); }
-
-.edu-card {
-  background: var(--surface); border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 10px; padding: 1.25rem 1.5rem;
-  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-}
-.edu-icon { font-size: 28px; color: var(--accent2); }
-.edu-info h3 { font-size: 15px; font-weight: 600; }
-.edu-info p { font-size: 13px; color: var(--muted); margin-top: 2px; }
-.edu-cgpa {
-  margin-left: auto; font-family: var(--mono); font-size: 24px; color: var(--accent); font-weight: 700;
-}
-.edu-cgpa span { display: block; font-size: 11px; color: var(--muted); text-align: center; margin-top: -2px; }
-
-.footer {
-  border-top: 1px solid var(--border); padding-top: 1.5rem;
-  font-family: var(--mono); font-size: 11px; color: var(--muted);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
-}
-.footer .status { display: flex; align-items: center; gap: 6px; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-</style>
-
+    @media (max-width: 600px) {
+      .tl-item { grid-template-columns: 85px 1px 1fr; }
+      .tl-date { font-size: 10px; }
+      .edu-cgpa { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
 <div class="portfolio">
-  <h2 class="sr-only" style="position:absolute;left:-9999px">Surendar N – IT Networking & Support Portfolio</h2>
 
   <section class="hero">
-    <div class="tag-line">Network & IT Support</div>
+    <div class="tag-line">Network &amp; IT Support Engineer</div>
     <h1>Surendar <span>N.</span></h1>
-    <p class="hero-sub">ECE graduate with 2.6 years of corporate experience transitioning into IT Networking and Support. CCNA-trained with hands-on home lab experience in Active Directory, Linux, and network simulation.</p>
+    <p class="hero-sub">ECE graduate with 2.6 years of corporate experience transitioning into IT Networking and Support. CCNA-trained with hands-on exposure to Cisco routers &amp; switches, Linux, Active Directory, and hardware troubleshooting.</p>
     <div class="badges">
       <span class="badge">CCNA Fundamentals</span>
+      <span class="badge">Cisco Router &amp; Switch</span>
       <span class="badge">Active Directory</span>
       <span class="badge">Linux Admin</span>
-      <span class="badge">Cisco Packet Tracer</span>
+      <span class="badge">Hardware Support</span>
       <span class="badge">Python Scripting</span>
     </div>
     <div class="contacts">
       <a class="contact-item" href="mailto:nsurendar001@gmail.com"><i class="ti ti-mail"></i> nsurendar001@gmail.com</a>
-      <span class="contact-item"><i class="ti ti-phone"></i> 9150440990</span>
-      <a class="contact-item" href="https://linkedin.com/in/surendar-n-b83796247"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
-      <span class="contact-item"><i class="ti ti-map-pin"></i> Chennai, TN</span>
+      <a class="contact-item" href="tel:9150440990"><i class="ti ti-phone"></i> 9150440990</a>
+      <a class="contact-item" href="https://linkedin.com/in/surendar-n-b83796247" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      <a class="contact-item" href="https://surendar017.github.io" target="_blank"><i class="ti ti-world"></i> surendar017.github.io</a>
+      <span class="contact-item"><i class="ti ti-map-pin"></i> Chennai, Tamil Nadu</span>
     </div>
   </section>
 
   <section class="section">
-    <div class="sec-label">Technical skills</div>
+    <div class="sec-label">Technical Skills</div>
     <div class="skills-grid">
       <div class="skill-card">
         <h4>Networking</h4>
         <div class="skill-tags">
-          <span class="skill-tag">OSI Model</span>
           <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">IP Addressing</span>
           <span class="skill-tag">Subnetting</span>
-          <span class="skill-tag">DNS</span>
+          <span class="skill-tag">LAN/WAN</span>
+          <span class="skill-tag">VLAN</span>
+          <span class="skill-tag">STP/RSTP</span>
+          <span class="skill-tag">RIP</span>
+          <span class="skill-tag">EIGRP</span>
+          <span class="skill-tag">OSPF</span>
           <span class="skill-tag">DHCP</span>
-          <span class="skill-tag">Routing & Switching</span>
+          <span class="skill-tag">Basic VPN</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Cisco Technologies</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Router Configuration</span>
+          <span class="skill-tag">Switch Configuration</span>
+          <span class="skill-tag">Inter-VLAN Routing</span>
+          <span class="skill-tag">Telnet / Remote Access</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Hardware &amp; System Support</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Desktop Assembly</span>
+          <span class="skill-tag">Hardware Troubleshooting</span>
+          <span class="skill-tag">OS Installation</span>
+          <span class="skill-tag">Printer Setup</span>
+          <span class="skill-tag">Virus Removal</span>
+          <span class="skill-tag">Crimping</span>
         </div>
       </div>
       <div class="skill-card">
@@ -174,7 +168,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
         </div>
       </div>
       <div class="skill-card">
-        <h4>Tools & Scripting</h4>
+        <h4>Tools &amp; Scripting</h4>
         <div class="skill-tags">
           <span class="skill-tag">Python</span>
           <span class="skill-tag">Cisco Packet Tracer</span>
@@ -184,9 +178,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
         </div>
       </div>
       <div class="skill-card">
-        <h4>AI & Productivity</h4>
+        <h4>AI &amp; Productivity</h4>
         <div class="skill-tags">
           <span class="skill-tag">ChatGPT</span>
+          <span class="skill-tag">Claude</span>
           <span class="skill-tag">Google Gemini</span>
           <span class="skill-tag">MS Copilot</span>
         </div>
@@ -195,34 +190,40 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
   </section>
 
   <section class="section">
-    <div class="sec-label">Experience & Training</div>
+    <div class="sec-label">Experience &amp; Training</div>
     <div class="timeline">
+
       <div class="tl-item">
-        <div class="tl-date">Dec 2025<br>– May 2026</div>
+        <div class="tl-date">Jan 2026<br>– Jun 2026</div>
         <div class="tl-line"></div>
         <div class="tl-body">
           <h3>IT Networking Internship</h3>
           <div class="company">Daphne Infotech · Chennai</div>
           <ul>
-            <li>Trained in CCNA fundamentals: OSI model, TCP/IP, subnetting, DNS, DHCP</li>
-            <li>Computer hardware: assembly, troubleshooting, OS installation</li>
-            <li>Linux system administration: commands, file systems, user permissions</li>
+            <li>Assisted in configuring Cisco routers and switches; performed IP configuration, VLAN setup, subnetting, and routing protocols (RIP, EIGRP, OSPF)</li>
+            <li>Troubleshot network connectivity and LAN/WAN issues</li>
+            <li>Installed Windows OS and software; assembled desktops; performed hardware diagnostics; configured printers and Outlook email setup</li>
+            <li>Assisted in Windows Server installation, Active Directory configuration, user management, network backup, and system security</li>
+            <li>Linux fundamentals: commands, file systems, user permissions, and basic system administration</li>
           </ul>
         </div>
       </div>
+
       <div class="tl-item">
         <div class="tl-date">Oct 2024<br>– Mar 2026</div>
         <div class="tl-line"></div>
         <div class="tl-body">
-          <h3>Process Associate</h3>
+          <h3>Technical Associate</h3>
           <div class="company">AGS Health · Chennai</div>
           <ul>
-            <li>Used ticketing systems to track, escalate, and resolve client issues</li>
-            <li>Communicated with US-based clients via email and calls</li>
-            <li>Documented workflows and resolutions to improve team efficiency</li>
+            <li>Responded to inbound support inquiries and made outbound calls to proactively resolve client issues</li>
+            <li>Used ticketing systems to track, escalate, and resolve issues with focus on first-call resolution</li>
+            <li>Communicated with US-based clients via calls and email to troubleshoot queries and ensure customer success</li>
+            <li>Documented workflows and resolutions to maintain accurate records and improve team efficiency</li>
           </ul>
         </div>
       </div>
+
       <div class="tl-item">
         <div class="tl-date">Jul 2023<br>– Aug 2024</div>
         <div class="tl-line"></div>
@@ -230,11 +231,13 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
           <h3>AR Executive – Medical Billing</h3>
           <div class="company">Omega Healthcare · Chennai</div>
           <ul>
-            <li>Managed insurance claim processing and denial management for US clients</li>
-            <li>Developed strong communication and documentation workflows</li>
+            <li>Managed insurance claim processing and denial management for US healthcare clients</li>
+            <li>Educated clients on billing processes and resolved account-related concerns promptly</li>
+            <li>Built strong communication, workflow management, and documentation skills</li>
           </ul>
         </div>
       </div>
+
       <div class="tl-item">
         <div class="tl-date">Feb – Apr 2023</div>
         <div class="tl-line"></div>
@@ -242,10 +245,11 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
           <h3>Python Full Stack Intern</h3>
           <div class="company">Shiash Infotech Pvt. Ltd</div>
           <ul>
-            <li>Built web applications using Python and full stack technologies</li>
+            <li>Built web applications using Python and full stack technologies over a 3-month internship</li>
           </ul>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -255,7 +259,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-server" aria-hidden="true"></i></div>
         <h3>Active Directory Home Lab</h3>
-        <p>Installed and configured Windows Server + AD in a virtual environment. Created domain users, groups, password policies, OUs, and GPOs. Simulated domain joining and user access troubleshooting.</p>
+        <p>Installed and configured Windows Server + AD in a virtual environment. Created domain users, groups, password policies, OUs, and GPOs. Simulated domain joining and user access troubleshooting scenarios.</p>
         <div class="proj-stack">
           <span>Windows Server</span><span>VirtualBox</span><span>Active Directory</span><span>Group Policy</span>
         </div>
@@ -263,7 +267,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-network" aria-hidden="true"></i></div>
         <h3>Network Simulation Lab</h3>
-        <p>Configured IP addressing and subnetting for simulated topologies. Practiced DNS & DHCP configuration and troubleshooting. Simulated basic routing between segments with static routes.</p>
+        <p>Configured IP addressing and subnetting for simulated topologies. Practiced DNS &amp; DHCP configuration and troubleshooting. Simulated routing between segments using static routes.</p>
         <div class="proj-stack">
           <span>Cisco Packet Tracer</span><span>DNS</span><span>DHCP</span><span>Static Routing</span>
         </div>
@@ -271,7 +275,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-terminal-2" aria-hidden="true"></i></div>
         <h3>Linux Sysadmin Practice</h3>
-        <p>File management, permissions, and process monitoring on Ubuntu. Wrote Python scripts to automate repetitive sysadmin tasks. Configured user accounts, groups, and sudo privileges.</p>
+        <p>File management, permissions, and process monitoring on Ubuntu. Wrote Python scripts to automate repetitive sysadmin tasks. Configured users, groups, and sudo privileges for access management.</p>
         <div class="proj-stack">
           <span>Ubuntu</span><span>Python</span><span>Bash</span><span>User Management</span>
         </div>
@@ -284,15 +288,21 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); }
     <div class="edu-card">
       <div class="edu-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
       <div class="edu-info">
-        <h3>B.E. Electronics & Communication Engineering</h3>
+        <h3>B.E. Electronics &amp; Communication Engineering</h3>
         <p>Jerusalem College of Engineering · Chennai &nbsp;·&nbsp; 2019 – 2023</p>
       </div>
       <div class="edu-cgpa">8.5<span>CGPA</span></div>
     </div>
   </section>
 
-  <div class="footer">
-    <div class="status"><div class="dot"></div> Open to work · Network Support / IT Helpdesk / Sysadmin / Cloud</div>
-    <div>Surendar N · Chennai, TN</div>
-  </div>
+  <footer>
+    <div class="status">
+      <div class="dot"></div>
+      Open to work · Network Support / IT Helpdesk / Sysadmin / Cloud
+    </div>
+    <div>Surendar N · Chennai, TN · nsurendar001@gmail.com</div>
+  </footer>
+
 </div>
+</body>
+</html>
