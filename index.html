@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Surendar N – IT Networking & Support</title>
+  <title>Surendar N – IT Server & IAM Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
@@ -30,9 +30,10 @@
     .tag-line { font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 3px; margin-bottom: 1rem; text-transform: uppercase; }
     .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 600; line-height: 1.1; margin-bottom: 0.75rem; }
     .hero h1 span { color: var(--accent); }
-    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 580px; line-height: 1.75; margin-bottom: 1.5rem; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.75; margin-bottom: 1.5rem; }
     .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.75rem; }
     .badge { font-family: var(--mono); font-size: 11px; padding: 4px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--accent); background: rgba(0,212,170,0.07); }
+    .badge.highlight { border-color: rgba(55,138,221,0.5); color: var(--accent2); background: rgba(55,138,221,0.08); }
     .contacts { display: flex; flex-wrap: wrap; gap: 20px; }
     .contact-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .contact-item:hover { color: var(--text); }
@@ -47,9 +48,18 @@
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
     .skill-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1rem 1.1rem; transition: border-color 0.2s, background 0.2s; }
     .skill-card:hover { border-color: var(--border); background: var(--surface2); }
+    .skill-card.featured { border-color: rgba(55,138,221,0.25); }
     .skill-card h4 { font-size: 11px; color: var(--accent); font-family: var(--mono); margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+    .skill-card.featured h4 { color: var(--accent2); }
     .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .skill-tag { font-size: 11px; padding: 3px 9px; border-radius: 4px; background: rgba(255,255,255,0.05); color: var(--muted); border: 1px solid rgba(255,255,255,0.08); }
+
+    /* CERT BANNER */
+    .cert-banner { background: linear-gradient(135deg, rgba(55,138,221,0.12), rgba(0,212,170,0.08)); border: 1px solid rgba(55,138,221,0.3); border-radius: 10px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 14px; margin-bottom: 2.75rem; }
+    .cert-banner i { font-size: 26px; color: var(--accent2); flex-shrink: 0; }
+    .cert-banner strong { font-size: 14px; display: block; margin-bottom: 2px; }
+    .cert-banner span { font-size: 12px; color: var(--muted); }
+    .cert-pill { margin-left: auto; font-family: var(--mono); font-size: 10px; padding: 4px 12px; border-radius: 999px; background: rgba(55,138,221,0.15); color: var(--accent2); border: 1px solid rgba(55,138,221,0.3); white-space: nowrap; }
 
     /* TIMELINE */
     .timeline { display: flex; flex-direction: column; }
@@ -57,6 +67,7 @@
     .tl-date { font-family: var(--mono); font-size: 11px; color: var(--muted); text-align: right; padding-top: 3px; line-height: 1.6; }
     .tl-line { background: var(--border); position: relative; }
     .tl-line::before { content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+    .tl-item.current .tl-line::before { background: var(--accent2); box-shadow: 0 0 8px rgba(55,138,221,0.6); }
     .tl-item:last-child .tl-line { background: linear-gradient(to bottom, var(--border), transparent); }
     .tl-body h3 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .tl-body .company { font-size: 12px; color: var(--accent2); margin-bottom: 8px; font-family: var(--mono); }
@@ -68,11 +79,16 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
     .proj-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.35rem; transition: border-color 0.2s, transform 0.2s; }
     .proj-card:hover { border-color: rgba(0,212,170,0.4); transform: translateY(-3px); }
+    .proj-card.iam { border-color: rgba(55,138,221,0.2); }
+    .proj-card.iam:hover { border-color: rgba(55,138,221,0.5); }
     .proj-icon { font-size: 24px; color: var(--accent); margin-bottom: 10px; }
+    .proj-card.iam .proj-icon { color: var(--accent2); }
     .proj-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
     .proj-card p { font-size: 12.5px; color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
     .proj-stack { display: flex; flex-wrap: wrap; gap: 5px; }
     .proj-stack span { font-size: 10px; font-family: var(--mono); padding: 2px 8px; border-radius: 3px; background: rgba(0,212,170,0.1); color: var(--accent); border: 1px solid rgba(0,212,170,0.2); }
+    .proj-card.iam .proj-stack span { background: rgba(55,138,221,0.1); color: var(--accent2); border-color: rgba(55,138,221,0.2); }
+    .proj-new-label { font-family: var(--mono); font-size: 9px; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; opacity: 0.8; }
 
     /* EDUCATION */
     .edu-card { background: var(--surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 1.35rem 1.75rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
@@ -92,22 +108,26 @@
       .tl-item { grid-template-columns: 85px 1px 1fr; }
       .tl-date { font-size: 10px; }
       .edu-cgpa { margin-left: 0; }
+      .cert-pill { margin-left: 0; margin-top: 8px; }
+      .cert-banner { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 <div class="portfolio">
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="tag-line">Network &amp; IT Support Engineer</div>
+    <div class="tag-line">IT Server &amp; Infrastructure Support Engineer</div>
     <h1>Surendar <span>N.</span></h1>
-    <p class="hero-sub">ECE graduate with 2.6 years of technical experience.<br>Skilled in CCNA fundamentals, Cisco routers &amp; switches, Linux, Active Directory, and hardware troubleshooting.</p>
+    <p class="hero-sub">ECE graduate with 2.6 years of technical experience.<br>Skilled in Microsoft Entra ID, Cisco Duo MFA, Active Directory, Cisco networking, Linux administration, and hybrid IT infrastructure support. Pursuing SC-300 for a focused move into IAM &amp; Cybersecurity.</p>
     <div class="badges">
-      <span class="badge">CCNA Fundamentals</span>
-      <span class="badge">Cisco Router &amp; Switch</span>
+      <span class="badge highlight">SC-300 In Progress</span>
+      <span class="badge">Microsoft Entra ID</span>
+      <span class="badge">Cisco Duo MFA</span>
       <span class="badge">Active Directory</span>
+      <span class="badge">CCNA Fundamentals</span>
       <span class="badge">Linux Admin</span>
-      <span class="badge">Hardware Support</span>
       <span class="badge">Python Scripting</span>
     </div>
     <div class="contacts">
@@ -119,14 +139,37 @@
     </div>
   </section>
 
+  <!-- CERT BANNER -->
+  <div class="cert-banner">
+    <i class="ti ti-shield-check"></i>
+    <div>
+      <strong>SC-300 – Microsoft Identity and Access Administrator Associate</strong>
+      <span>Currently studying · Microsoft Certified (In Progress)</span>
+    </div>
+    <div class="cert-pill">⚡ In Progress</div>
+  </div>
+
+  <!-- SKILLS -->
   <section class="section">
     <div class="sec-label">Technical Skills</div>
     <div class="skills-grid">
+      <div class="skill-card featured">
+        <h4>Identity &amp; Access Management</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Entra ID</span>
+          <span class="skill-tag">Cisco Duo (MFA)</span>
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">User Provisioning</span>
+          <span class="skill-tag">Access Reviews</span>
+          <span class="skill-tag">SSO Concepts</span>
+          <span class="skill-tag">Conditional Access</span>
+          <span class="skill-tag">Zero Trust</span>
+        </div>
+      </div>
       <div class="skill-card">
         <h4>Networking</h4>
         <div class="skill-tags">
           <span class="skill-tag">TCP/IP</span>
-          <span class="skill-tag">IP Addressing</span>
           <span class="skill-tag">Subnetting</span>
           <span class="skill-tag">LAN/WAN</span>
           <span class="skill-tag">VLAN</span>
@@ -148,62 +191,73 @@
         </div>
       </div>
       <div class="skill-card">
-        <h4>Hardware &amp; System Support</h4>
+        <h4>Systems Administration</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Windows Server</span>
+          <span class="skill-tag">Linux (Ubuntu)</span>
+          <span class="skill-tag">Microsoft 365</span>
+          <span class="skill-tag">Exchange Online</span>
+          <span class="skill-tag">Exim4 Mail Server</span>
+          <span class="skill-tag">IceWarp</span>
+          <span class="skill-tag">Group Policy</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Hardware &amp; Support</h4>
         <div class="skill-tags">
           <span class="skill-tag">Desktop Assembly</span>
           <span class="skill-tag">Hardware Troubleshooting</span>
           <span class="skill-tag">OS Installation</span>
           <span class="skill-tag">Printer Setup</span>
-          <span class="skill-tag">Virus Removal</span>
-          <span class="skill-tag">Crimping</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Operating Systems</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Linux (Ubuntu)</span>
-          <span class="skill-tag">Windows Server</span>
-          <span class="skill-tag">Active Directory</span>
-          <span class="skill-tag">Group Policy</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Tools &amp; Scripting</h4>
-        <div class="skill-tags">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Cisco Packet Tracer</span>
-          <span class="skill-tag">VirtualBox</span>
-          <span class="skill-tag">MS Excel</span>
+          <span class="skill-tag">ScreenConnect</span>
+          <span class="skill-tag">SSH / PuTTY</span>
           <span class="skill-tag">Ticketing Tools</span>
         </div>
       </div>
       <div class="skill-card">
-        <h4>AI &amp; Productivity</h4>
+        <h4>Scripting &amp; AI Tools</h4>
         <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">PowerShell (learning)</span>
           <span class="skill-tag">ChatGPT</span>
           <span class="skill-tag">Claude</span>
-          <span class="skill-tag">Google Gemini</span>
           <span class="skill-tag">MS Copilot</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
   <section class="section">
     <div class="sec-label">Experience &amp; Training</div>
     <div class="timeline">
 
+      <div class="tl-item current">
+        <div class="tl-date">Jul 2026<br>– Present</div>
+        <div class="tl-line"></div>
+        <div class="tl-body">
+          <h3>Server / Infrastructure Support Engineer</h3>
+          <div class="company">TechNerds Solutions · Chennai</div>
+          <ul>
+            <li>Administer hybrid IT infrastructure spanning Microsoft 365, Entra ID (Azure AD), Exchange Online, on-prem Active Directory, and Linux-based mail servers (Exim4, IceWarp)</li>
+            <li>Manage user identities and access in Microsoft Entra ID — account provisioning, access reviews, and MFA/password issue resolution</li>
+            <li>Support Cisco Duo MFA enrollment and troubleshooting for end users</li>
+            <li>Provide remote server support and ticket resolution via ScreenConnect and SSH (PuTTY)</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="tl-item">
-        <div class="tl-date">Jan 2026<br>– Jun 2026</div>
+        <div class="tl-date">Dec 2025<br>– May 2026</div>
         <div class="tl-line"></div>
         <div class="tl-body">
           <h3>IT Networking Internship</h3>
           <div class="company">Daphne Infotech · Chennai</div>
           <ul>
-            <li>Assisted in configuring Cisco routers and switches; performed IP configuration, VLAN setup, subnetting, and routing protocols (RIP, EIGRP, OSPF)</li>
-            <li>Troubleshot network connectivity and LAN/WAN issues</li>
+            <li>Configured Cisco routers and switches; performed IP configuration, VLAN setup, subnetting, and routing protocols (RIP, EIGRP, OSPF)</li>
             <li>Installed Windows OS and software; assembled desktops; performed hardware diagnostics; configured printers and Outlook email setup</li>
-            <li>Assisted in Windows Server installation, Active Directory configuration, user management, network backup, and system security</li>
+            <li>Assisted in Windows Server installation, Active Directory configuration, user management, and system security procedures</li>
             <li>Linux fundamentals: commands, file systems, user permissions, and basic system administration</li>
           </ul>
         </div>
@@ -218,7 +272,7 @@
           <ul>
             <li>Responded to inbound support inquiries and made outbound calls to proactively resolve client issues</li>
             <li>Used ticketing systems to track, escalate, and resolve issues with focus on first-call resolution</li>
-            <li>Communicated with US-based clients via calls and email to troubleshoot queries and ensure customer success</li>
+            <li>Communicated with US-based clients via calls and email to troubleshoot queries</li>
             <li>Documented workflows and resolutions to maintain accurate records and improve team efficiency</li>
           </ul>
         </div>
@@ -253,9 +307,12 @@
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section class="section">
     <div class="sec-label">Projects</div>
     <div class="projects-grid">
+
+      <!-- Existing 3 -->
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-server" aria-hidden="true"></i></div>
         <h3>Active Directory Home Lab</h3>
@@ -264,6 +321,7 @@
           <span>Windows Server</span><span>VirtualBox</span><span>Active Directory</span><span>Group Policy</span>
         </div>
       </div>
+
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-network" aria-hidden="true"></i></div>
         <h3>Network Simulation Lab</h3>
@@ -272,6 +330,7 @@
           <span>Cisco Packet Tracer</span><span>DNS</span><span>DHCP</span><span>Static Routing</span>
         </div>
       </div>
+
       <div class="proj-card">
         <div class="proj-icon"><i class="ti ti-terminal-2" aria-hidden="true"></i></div>
         <h3>Linux Sysadmin Practice</h3>
@@ -280,9 +339,42 @@
           <span>Ubuntu</span><span>Python</span><span>Bash</span><span>User Management</span>
         </div>
       </div>
+
+      <!-- New IAM-focused projects -->
+      <div class="proj-card iam">
+        <div class="proj-new-label">✦ IAM Focus</div>
+        <div class="proj-icon"><i class="ti ti-shield-lock" aria-hidden="true"></i></div>
+        <h3>Entra ID &amp; MFA Lab</h3>
+        <p>Set up a Microsoft Entra ID (Azure AD) tenant in a free trial environment. Configured Conditional Access policies, MFA enforcement, and simulated Cisco Duo MFA enrollment flows — mirroring real-world IAM support tasks.</p>
+        <div class="proj-stack">
+          <span>Microsoft Entra ID</span><span>Conditional Access</span><span>Cisco Duo</span><span>MFA</span>
+        </div>
+      </div>
+
+      <div class="proj-card iam">
+        <div class="proj-new-label">✦ IAM Focus</div>
+        <div class="proj-icon"><i class="ti ti-key" aria-hidden="true"></i></div>
+        <h3>Zero Trust Identity Simulation</h3>
+        <p>Simulated a Zero Trust access model using Entra ID Conditional Access policies — enforcing least-privilege access, device compliance, and location-based restrictions. Documented policies aligned to SC-300 exam objectives.</p>
+        <div class="proj-stack">
+          <span>Entra ID</span><span>Zero Trust</span><span>Conditional Access</span><span>SC-300</span>
+        </div>
+      </div>
+
+      <div class="proj-card iam">
+        <div class="proj-new-label">✦ Scripting</div>
+        <div class="proj-icon"><i class="ti ti-code" aria-hidden="true"></i></div>
+        <h3>PowerShell User Provisioning Script</h3>
+        <p>Built a PowerShell script to automate bulk user creation, group assignment, and password resets in Active Directory. Reduces manual effort for repetitive IT helpdesk tasks and serves as a foundation for Entra ID automation.</p>
+        <div class="proj-stack">
+          <span>PowerShell</span><span>Active Directory</span><span>Automation</span><span>User Provisioning</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- EDUCATION -->
   <section class="section">
     <div class="sec-label">Education</div>
     <div class="edu-card">
@@ -298,7 +390,7 @@
   <footer>
     <div class="status">
       <div class="dot"></div>
-      Open to work · Network Support / IT Helpdesk / Sysadmin / Cloud
+      Open to · IAM Engineer · Identity Security Analyst · Cybersecurity Support
     </div>
     <div>Surendar N · Chennai, TN · nsurendar001@gmail.com</div>
   </footer>
